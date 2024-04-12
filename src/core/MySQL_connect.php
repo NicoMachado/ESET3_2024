@@ -34,7 +34,7 @@ class MySQL_connect
         if ($id <= 0) {
             $response = array();
             $response['error'] = true;
-            $response['msj'] = 'bad id';
+            $response['msg'] = 'bad id';
             mysqli_close($this->conn);
             return $response;
         }
@@ -53,7 +53,7 @@ class MySQL_connect
     }
 
     //return array
-    public function selectAllData($table)
+    public function selectAllData($table, $where = null)
     {
         if (is_array(($this->conn))) {
             if (isset($this->conn['error'])) {
@@ -65,13 +65,22 @@ class MySQL_connect
 
         $response = array();
         $sql = "SELECT * FROM $table";
+        if (isset($where)) {
+            $sql .= " WHERE $where";
+        }
         $result = mysqli_query($this->conn, $sql);
+        var_dump(mysqli_error($this->conn));
         //if $result is false, there was an error
         if ($result !== false && mysqli_num_rows($result) > 0) {
             // output data of each row
             while ($row = mysqli_fetch_assoc($result)) {
                 $response[] = $row;
             }
+                    
+        } else {
+            $response['error'] = true;
+            $response['errno'] = mysqli_errno($this->conn);
+            $response['msg'] = mysqli_error($this->conn);
         }
         mysqli_close($this->conn);
         return $response;

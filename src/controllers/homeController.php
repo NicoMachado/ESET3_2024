@@ -3,7 +3,7 @@
 /**
  *
  */
-class Home extends Controllers
+class HomeController extends Controllers
 {
 
     private $name;
@@ -22,20 +22,38 @@ class Home extends Controllers
 
     public function index()
     {
-        // $model = $this->mysql->selectData('Persona', 6);
-        //$model = $this->mysql->selectAllData('Tema');
-
-        // if (!isset($model['error'])) {
-        //     $persona = new Persona();
-        //     $persona->Nombre = $model['Nombre'];
-        //     $persona->Apellido = $model['Apellido'];
-        //     $persona->Direccion = $model['Direccion'];
-        //     $persona->Ciudad = $model['Ciudad'];
-        //     $persona->Pais = $model['Pais'];
-        //     $persona->setEmail($model['Email']);
-        //     $persona->FechaNacimiento = $model['FechaNacimiento'];
-
         require_once(VIEWS_PATH . "homeView.php");
+        
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+            // El usuario ha iniciado sesión correctamente, muestra el contenido protegido
+            // Aquí puedes incluir lógica para cargar datos específicos del usuario, etc.
+            $usuario = $_SESSION['logged_user'];
+
+            require_once(VIEWS_PATH . "homeView.php");
+        } else {
+            // El usuario no ha iniciado sesión, redirige a la página de inicio de sesión o muestra un mensaje de error
+            // Ejemplo:
+            // header("Location: login.php");
+            // exit();
+            echo "Debe iniciar sesión para acceder a esta página";
+        }
+    }
+
+    public function login() {
+        // Verifica las credenciales del usuario
+        $credenciales_validas = false;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $credenciales_validas = $this->mysql->login($_POST['username'], $_POST['password']);
+        }
+        if ($credenciales_validas) {
+            $_SESSION['logged_in'] = true; // Establece la variable de sesión
+            $_SESSION['logged_user'] = $_POST['username']; // Establece el nombre de usuario de sesión
+            header("Location: home/index");
+            exit();
+        }
+
+        require_once(VIEWS_PATH . "loginView.php");
+        
     }
 
     public function api()

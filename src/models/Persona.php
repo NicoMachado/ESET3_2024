@@ -1,6 +1,6 @@
 <?php
 
-class Persona
+class Persona extends Entity
 {
     private $Email;
     private $Passw;
@@ -18,8 +18,14 @@ class Persona
     // {
     //     $this->Email = $this->validar($post, 'email') ? $this->Email : null;
     // }
+    public function __construct()
+    {
+        $this->name = 'homeController';
+        $this->mysql = new MySQL_connect();
+    }
 
 
+    
     //GETERS y SETERS
     public function setEmail(string $email)
     {

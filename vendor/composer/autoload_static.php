@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit1f5b3f9db721b5596756b45cecc962f6
 {
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'Tecn3\\Necochea2024\\' => 19,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -16,13 +20,13 @@ class ComposerStaticInit1f5b3f9db721b5596756b45cecc962f6
         array (
             'MyCLabs\\Enum\\' => 13,
         ),
-        'I' => 
-        array (
-            'Inet\\Olimpiada2023Necochea\\' => 27,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Tecn3\\Necochea2024\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -35,21 +39,23 @@ class ComposerStaticInit1f5b3f9db721b5596756b45cecc962f6
         array (
             0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
         ),
-        'Inet\\Olimpiada2023Necochea\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Controllers' => __DIR__ . '/../..' . '/src/core/Controllers.php',
+        'Entity' => __DIR__ . '/../..' . '/src/core/Entity.php',
         'Generic' => __DIR__ . '/../..' . '/src/controllers/genericController.php',
-        'Home' => __DIR__ . '/../..' . '/src/controllers/homeController.php',
+        'HomeController' => __DIR__ . '/../..' . '/src/controllers/homeController.php',
         'MySQL_connect' => __DIR__ . '/../..' . '/src/core/MySQL_connect.php',
         'Persona' => __DIR__ . '/../..' . '/src/models/Persona.php',
+        'Profesor' => __DIR__ . '/../..' . '/src/models/Profesor.php',
+        'ProfessorController' => __DIR__ . '/../..' . '/src/controllers/professorController.php',
         'Router' => __DIR__ . '/../..' . '/src/core/Router.php',
         'Stringable' => __DIR__ . '/..' . '/myclabs/php-enum/stubs/Stringable.php',
+        'Tarea' => __DIR__ . '/../..' . '/src/models/Tarea.php',
+        'TareaController' => __DIR__ . '/../..' . '/src/controllers/tareaController.php',
+        'Tema' => __DIR__ . '/../..' . '/src/models/Tema.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

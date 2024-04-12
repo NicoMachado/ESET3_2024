@@ -2,7 +2,7 @@
     "name": "esetn3/tecno-task",
     "autoload": {
         "psr-4": {
-            "Inet\\Olimpiada2023Necochea\\": "src/"
+            "Tecn3\\Necochea2024\\": "src/"
         },
         "classmap":["src/"] 
 

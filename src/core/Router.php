@@ -63,22 +63,27 @@ class Router
   public static function loadController()
   {
     $routes = self::getRoutes();
+
     if ($routes) {
       $controllerFile = CONTROLLERS_PATH . $routes['controller'] . "Controller.php";
+      
       if (file_exists($controllerFile)) {
         try {
           require_once($controllerFile);
-          $controller = new $routes['controller']();
+          
+          $className = ucfirst($routes['controller']) . 'Controller';
+          $controller = new $className();
           if (method_exists($controller, $routes['method'])) {
             $controller->{$routes['method']}($routes['params']);
           } else {
             require_once(VIEWS_PATH . "error404View.php");
           }
         } catch (\Throwable $th) {
-          require_once(VIEWS_PATH . "error404View.php");
+          echo "Error: " . $th->getMessage();
+          require_once(VIEWS_PATH . "error405View.php");
         }
       } else {
-        require_once(VIEWS_PATH . "error404View.php");
+        require_once(VIEWS_PATH . "error406View.php");
       }
     }
     return false;

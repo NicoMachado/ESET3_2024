@@ -17,7 +17,18 @@
                 <li class="nav_li"><a href="#">Nosotros</a></li>
             </ul>
         </nav>
-        <button class="nav_button" type="submit">LOGIN</button>
+        <?php   
+            if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+                ?>
+            <div class="container_user">
+                <span class="user"><?php echo $_SESSION['logged_user']; ?></span>
+            </div>
+        <?php } else { ?>
+        
+        <form action="Home/login" method="post">
+            <button class="nav_button" type="submit">LOGIN</button>
+        </form>
+        <?php } ?>
     </header>
     <main>
         <div class="contain_slogan">

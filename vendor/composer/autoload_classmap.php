@@ -8,10 +8,16 @@ $baseDir = dirname($vendorDir);
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Controllers' => $baseDir . '/src/core/Controllers.php',
+    'Entity' => $baseDir . '/src/core/Entity.php',
     'Generic' => $baseDir . '/src/controllers/genericController.php',
-    'Home' => $baseDir . '/src/controllers/homeController.php',
+    'HomeController' => $baseDir . '/src/controllers/homeController.php',
     'MySQL_connect' => $baseDir . '/src/core/MySQL_connect.php',
     'Persona' => $baseDir . '/src/models/Persona.php',
+    'Profesor' => $baseDir . '/src/models/Profesor.php',
+    'ProfessorController' => $baseDir . '/src/controllers/professorController.php',
     'Router' => $baseDir . '/src/core/Router.php',
     'Stringable' => $vendorDir . '/myclabs/php-enum/stubs/Stringable.php',
+    'Tarea' => $baseDir . '/src/models/Tarea.php',
+    'TareaController' => $baseDir . '/src/controllers/tareaController.php',
+    'Tema' => $baseDir . '/src/models/Tema.php',
 );

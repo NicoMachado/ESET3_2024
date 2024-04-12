@@ -1,9 +1,8 @@
 <?php
-class Tarea
+
+class Tarea extends Entity
 {
-    // //public function __construct()
-    // {
-    // }
+
     private $id;
     private $titulo;
     private $detalle;
@@ -12,6 +11,49 @@ class Tarea
     private $profesor_id;
     private $fechaUltimoCambio;
     private $usuario_id;
+    private $table;
+
+    public function __construct()
+    {
+        parent::__construct(); // Llamada al constructor de la clase base
+        $this->table = 'tarea';
+    }
+
+    /**
+     * 
+     */
+    public function load($id)
+    {
+        $this->id = $id;
+        $model = $this->mysql->selectData($this->table, $this->id);
+        if (!isset($model['error'])) {
+            $this->id = $model['id'];
+            $this->titulo = $model['titulo'];
+            $this->detalle = $model['detalle'];
+            $this->fechaEntrega = $model['fechaEntrega'];
+            $this->tema_id = $model['tema_id'];
+            $this->profesor_id = $model['profesor_id'];
+            $this->fechaUltimoCambio = $model['fechaUltimoCambio'];
+            $this->usuario_id = $model['usuario_id'];
+        }
+    }
+
+    /**
+     * 
+     */
+    public function loadAll()
+    {
+        $model = $this->mysql->selectAllData($this->table);
+        return $model;
+    }
+
+
+
+
+    public function save()
+    {
+        $this->mysql->insertData($this->table, $this->id, $this->titulo, $this->detalle, $this->fechaEntrega, $this->tema_id, $this->profesor_id, $this->fechaUltimoCambio, $this->usuario_id);
+    }
 
     public function setId(string $id)
     {
@@ -83,6 +125,12 @@ class Tarea
     public function getUsuario_id()
     {
         return $this->usuario_id;
+    }
+
+    //getTable
+    public function getTable()
+    {
+        return $this->table;
     }
 }
 ?>

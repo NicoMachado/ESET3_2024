@@ -1,26 +1,37 @@
 <?php
-class ProfessorController extends Controllers
+//use Tecn3\Necochea2024\Tarea;
+
+
+// http://localhost/tecn3-2024/index.php?url=tarea/index
+class TareaController extends Controllers
 {
     private $name;
     private $mysql;
+
     public function __construct()
     {
-        $this->name = 'professorController';
+        $this->name = 'tareaController';
         $this->mysql = new MySQL_connect();
     }
+
     public function getName()
     {
         return $this-> $name;
     }
+
     public function index()
     {
-        $model = $this->mysql->selectAllData('profesor');
+        //$model = $this->mysql->selectAllData('tarea');
+        $model = new Tarea();
 
-        if(!isset($model['error'])){
-            $professor = new Professor();
-            $professor->Id = $model['id'];
-            $professor->Nombre = $model['apeynom'];
-            $professor->Activo = $model['activo'];
+        var_dump($model);
+        $rows = $model->selectAllData($model->getTable());
+        if(!isset($rows['error'])){
+            var_dump ( $rows );
+            // $t = new Tarea();
+            // $t->Id = $rows['id'];
+            // $t->Nombre = $model['apeynom'];
+            // $t->Activo = $model['activo'];
         }
     }
     public function api()
@@ -36,7 +47,7 @@ class ProfessorController extends Controllers
 
         switch ($http_method) {
             case "GET":
-                $model = $this->mysql->selectData('profesor', 6);
+                $model = $this->mysql->selectData('tarea', 6);
 
                 $model['http-method'] = $http_method;
 
