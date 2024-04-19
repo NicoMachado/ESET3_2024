@@ -10,4 +10,5 @@ RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 Options -Indexes
 RedirectMatch 403 /\..*$
 RewriteRule (^|/)src(/|$) - [F]
+RewriteRule (^|/)controllers(/|$) - [F]
 RewriteRule (^|/)vendor(/|$) - [F]

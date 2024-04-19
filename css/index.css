@@ -86,3 +86,44 @@
     width: 80%;
     background-color: linear-gradient(0.25turn,#CDFFD8, #94B9FF);
 }
+
+.container_login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center; /* Centra el formulario en la página */
+    align-items: center; /* Centra verticalmente */
+    min-height: 100vh; /* Toma toda la altura de la ventana */
+}
+
+.container_login h2 {
+    text-align: center; /* Título centrado */
+    margin-bottom: 20px; /* Espacio después del título */
+}
+
+.container_login input[type="text"],
+.container_login input[type="password"] {
+    margin-bottom: 10px; /* Espacio entre los campos */
+    padding: 10px; /* Padding para hacer los campos más grandes */
+    border: 1px solid #ccc; /* Borde sutil */
+    border-radius: 5px; /* Bordes redondeados para los campos de texto */
+}
+
+.container_login button {
+    padding: 10px 20px; /* Padding más generoso para el botón */
+    background-color: #007BFF; /* Un azul bonito para el botón */
+    color: white; /* Texto blanco para que resalte */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+
+.container_login button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}

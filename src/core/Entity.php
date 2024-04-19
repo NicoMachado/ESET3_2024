@@ -1,5 +1,5 @@
 <?php
-class Entity
+abstract class Entity
 {
     private $conn;
     private $response;
@@ -20,6 +20,7 @@ class Entity
         $this->response = $this->conn->selectAllData($table, $where);
         return $this->response;
     }
+
+
 }
 ?>
-
