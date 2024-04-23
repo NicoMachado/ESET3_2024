@@ -25,9 +25,9 @@ class User extends Entity
         return $this->contrasena;
     }
 
-    public static function validate($username, $password) {
+    public function validate($username, $password) {
         $where = "WHERE username = '$username' AND password = '$password'";
-        $users = selectAllData('user', $where);
+        $users = $this->selectAllData('user', $where);
 
         if (count($users) > 0) {
             $user = new User();
