@@ -25,7 +25,7 @@
             </div>
         <?php } else { ?>
         
-        <form action="login" method="get">
+        <form action="home/login" method="get">
             <button class="nav_button" type="submit">LOGIN</button>
         </form>
         <?php } ?>

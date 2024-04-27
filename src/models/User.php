@@ -1,4 +1,5 @@
 <?php
+
 class User extends Entity
 {
     public function __construct() {
@@ -16,18 +17,25 @@ class User extends Entity
         return $this->id;
     }
 
-    public function setContrasena(string $contrasena)
-    {
-        $this->contrasena = $contrasena;
+    public function getUsername() {
+        return $this->username;
     }
-    public function getContrasena()
-    {
-        return $this->contrasena;
+
+    public function getPassword() {
+        return $this->password;
     }
 
     public function validate($username, $password) {
         $where = "WHERE username = '$username' AND password = '$password'";
-        $users = $this->selectAllData('user', $where);
+
+        try {
+            $users = $this->selectAllData('user', $where);
+            //code...
+        } catch (\Throwable $th) {
+            throw $th;
+        } finally {
+            
+        }
 
         if (count($users) > 0) {
             $user = new User();

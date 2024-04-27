@@ -20,4 +20,5 @@ return array(
     'Tarea' => $baseDir . '/src/models/Tarea.php',
     'TareaController' => $baseDir . '/src/controllers/tareaController.php',
     'Tema' => $baseDir . '/src/models/Tema.php',
+    'User' => $baseDir . '/src/models/User.php',
 );

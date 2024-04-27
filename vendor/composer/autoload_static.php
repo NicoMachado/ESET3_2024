@@ -56,6 +56,7 @@ class ComposerStaticInit1f5b3f9db721b5596756b45cecc962f6
         'Tarea' => __DIR__ . '/../..' . '/src/models/Tarea.php',
         'TareaController' => __DIR__ . '/../..' . '/src/controllers/tareaController.php',
         'Tema' => __DIR__ . '/../..' . '/src/models/Tema.php',
+        'User' => __DIR__ . '/../..' . '/src/models/User.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

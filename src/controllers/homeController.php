@@ -43,12 +43,20 @@ class HomeController extends Controllers
         // Verifica las credenciales del usuario
         $credenciales_validas = false;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $credenciales_validas = $this->mysql->login($_POST['username'], $_POST['password']);
+            $user = new User();
+
+            $credenciales_validas = $user->validate($_POST['username'], $_POST['password']);
+            var_dump($user);
+            var_dump($credenciales_validas);
+
+            exit(0);
+
         }
         if ($credenciales_validas) {
             $_SESSION['logged_in'] = true; // Establece la variable de sesión
             $_SESSION['logged_user'] = $_POST['username']; // Establece el nombre de usuario de sesión
-            header("Location: home/index");
+            //header("Location: home/index");
+            header("Location: index");
             exit();
         }
 
