@@ -2,12 +2,17 @@
 
 class User extends Entity
 {
-    public function __construct() {
-        parent::__construct();        
-    }
+    private $table;
+
     private $id;
     private $username;
     private $password;
+
+    public function __construct() {
+        parent::__construct();   
+        $this->table = 'usuario';
+    }
+
 
 
     public function setId(string $id) {
@@ -26,10 +31,9 @@ class User extends Entity
     }
 
     public function validate($username, $password) {
-        $where = "WHERE username = '$username' AND password = '$password'";
-
+        $where = " username = '$username' AND password = '$password'";
         try {
-            $users = $this->selectAllData('user', $where);
+            $users = $this->selectAllData($this->table, $where);
             //code...
         } catch (\Throwable $th) {
             throw $th;

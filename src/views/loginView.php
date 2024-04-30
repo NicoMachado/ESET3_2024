@@ -24,16 +24,17 @@
                 <span class="user"><?php echo $_SESSION['logged_user']; ?></span>
             </div>
         <?php } else { ?>
-        
+        <!--
         <form action="login" method="get">
-            <button class="nav_button" type="submit">LOGIN</button>
+            <button class="nav_button <?php echo ' hidden' ?>" type="submit">LOGIN</button>
         </form>
+        -->
         <?php } ?>
     </header>
     <div class="login-form">
         <div class="container_login">
             <h2>Login</h2>
-            <form action="login" method="POST">
+            <form action="luca" method="POST">
                 <Table>
                 <tr>
                     <td>

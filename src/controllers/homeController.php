@@ -39,6 +39,10 @@ class HomeController extends Controllers
         }
     }
 
+    public function luca() {
+            echo "Estoy en la funciona luca()";
+    }
+
     public function login() {
         // Verifica las credenciales del usuario
         $credenciales_validas = false;
