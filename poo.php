@@ -6,6 +6,12 @@ class Fruit {
   private $calorias;
 
   // Methods
+    function __toString() {
+        return "[Nombre: ".$this->name ."\n".
+        "{Color: ".$this->color."}". 
+        "]\n\n";
+    }
+
   function set_name($name) {
     $this->name = $name;
   }
@@ -32,6 +38,7 @@ $res = $apple
 $apple->set_calorias(50);
 $apple->set_color('Rojo');
 var_dump($res);
+echo $apple;
 
 
 $banana = new Fruit();
