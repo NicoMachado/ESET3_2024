@@ -1,4 +1,10 @@
 <?php
+
+abstract class Animal {
+  
+}
+
+
 class Fruit {
   // Properties
   private $name;
@@ -12,8 +18,8 @@ class Fruit {
         "]\n\n";
     }
 
-  function set_name($name) {
-    $this->name = $name;
+  function set_name($n) {
+    $this->name = $n;
   }
   function get_name() {
     return $this->name;
@@ -30,6 +36,9 @@ class Fruit {
   function set_calorias($calorias){
     $this->calorias = $calorias;
   }
+
+
+  
 }
 
 $apple = new Fruit();
