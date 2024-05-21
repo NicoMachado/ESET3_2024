@@ -1,7 +1,7 @@
 <?php 
 
 abstract class Vehicle {
-    protected $brand;
+    private $brand;
     private $model;
 
     public function __construct($brand, $model) {
@@ -53,7 +53,8 @@ class Truck extends Vehicle {
 
     public function display() {
         parent::display(); // Muestra la marca y el modelo
-        echo "Marca: " . $this->brand . "\n";
+        echo "Brand: " . $this->brand . "\n";
+        echo "Model: " . $this->model . "\n";
         echo "Fuel Type: " . $this->fuelType . "\n";
         echo "Tons: " . $this->tons . "\n";
     }
