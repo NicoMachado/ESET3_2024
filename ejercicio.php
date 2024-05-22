@@ -1,8 +1,8 @@
 <?php 
 
 abstract class Vehicle {
-    private $brand;
-    private $model;
+    protected $brand;
+    protected $model;
 
     public function __construct($brand, $model) {
         $this->brand = $brand;
@@ -60,7 +60,11 @@ class Truck extends Vehicle {
     }
 
     public function startEngine() {
-        echo "Starting the engine of the truck with extra power: " . $this->brand . " " . $this->model . "\n";
+        echo "Starting the engine of the truck with extra power, Brand: " . $this->brand . " , Model: " . $this->model . "\n";
+    }
+
+    public function stopEngine() {
+        echo "Stopping the engine of the truck with extra power, Brand: " . $this->brand . " , Model: " . $this->model . "\n";
     }
     
 }
@@ -69,12 +73,18 @@ function startVehicleEngine(Vehicle $vehicle) {
     $vehicle->startEngine();
 }
 
+function stopVehicleEngine(Vehicle $vehicle) {
+    $vehicle->stopEngine();
+}
+
+
 $c = new Car("Ford", "Mondeo", "Nafta");
-$c->display();
+//$c->display();
 echo "\n";
 $t = new Truck("Ford", "F-150", "Diesel");
-$t->display();
+//$t->display();
 
 
 //startVehicleEngine($c);
-//startVehicleEngine($t);
+startVehicleEngine($t);
+stopVehicleEngine($t);
